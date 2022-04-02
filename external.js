@@ -35,10 +35,30 @@ function singleGame(playerSel, computerSel) {
             return "You win! "  + playerSelect + " beats " + comSelect
         }
     }
+}
+
+function getOption(){
+    const options = ["rock", "paper", "scissors"];
+    let flag = true;
+    
+    while(flag) {
+        let option = window.prompt("Choose either rock, paper or scissors please.");
+
+        if (options.includes(option.toLowerCase())) {
+            return option
+        } else {
+            alert("Repeat please!");
+        }
     }
+}
+function game() {
+    
+    for (let i = 0; i < 5; i++) {
+        let player = getOption();
+        let com = computerPlay();
+        console.log(singleGame(player, com));
+    }
+}
 
-let player ="Rock";
-let com = computerPlay()
-
-console.log(singleGame(player, com));
+game()
 
