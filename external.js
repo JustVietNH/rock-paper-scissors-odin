@@ -52,12 +52,7 @@ function getOption(){
     }
 }
 function game() {
-    
-    for (let i = 0; i < 5; i++) {
-        let player = getOption();
-        let com = computerPlay();
-        console.log(singleGame(player, com));
-    }
+    return;
 }
 
 game()
