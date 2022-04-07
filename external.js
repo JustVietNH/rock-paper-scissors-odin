@@ -57,3 +57,10 @@ function game() {
 
 game()
 
+const playerBtns = document.querySelectorAll("button");
+
+playerBtns.forEach(function (e) {
+    e.addEventListener('click', function() {
+        console.log(e.className);
+    });
+});
