@@ -13,61 +13,73 @@ function singleGame(playerSel, computerSel) {
 
     // if tie just get out of func
     if (playerSel == computerSel) {
-        return "Tie Game! You chose " + playerSel + " and the computer as well!"
+        return;
+        //"Tie Game! You chose " + playerSel + " and the computer as well!"
     }
 
     if (playerSelect == "Rock") {
         if (comSelect == "Paper") {
-            return "You lose! " + comSelect + " beats " + playerSelect
+            return 0;
+            //"You lose! " + comSelect + " beats " + playerSelect
         } else if (comSelect == "Scissors") {
-            return "You win! "  + playerSelect + " beats " + comSelect
+            return 1;
+            //"You win! "  + playerSelect + " beats " + comSelect
         }
     } else if (playerSelect == "Paper") {
         if (comSelect == "Scissors") {
-            return "You lose! " + comSelect + " beats " + playerSelect
+            return 0;
+            //"You lose! " + comSelect + " beats " + playerSelect
         } else if (comSelect == "Rock") {
-            return "You win! "  + playerSelect + " beats " + comSelect
+            return 1;
+            //"You win! "  + playerSelect + " beats " + comSelect
         }
     } else if (playerSelect == "Scissors") {
         if (comSelect == "Rock") {
-            return "You lose! " + comSelect + " beats " + playerSelect
+            return 0;
+            //"You lose! " + comSelect + " beats " + playerSelect
         } else if (comSelect == "Paper") {
-            return "You win! "  + playerSelect + " beats " + comSelect
+            return 1;
+            //"You win! "  + playerSelect + " beats " + comSelect
         }
     }
-}
-
-function getOption(){
-    const options = ["rock", "paper", "scissors"];
-    let flag = true;
-    
-    while(flag) {
-        let option = window.prompt("Choose either rock, paper or scissors please.");
-
-        if (options.includes(option.toLowerCase())) {
-            return option
-        } else {
-            alert("Repeat please!");
-        }
-    }
-}
-function game(target) {
-    console.log(target)
-    return;
 }
 
 function splitString(className) {
     console.log(className.split(" ")[1])
-    return;
+    return className.split(" ")[1];
 }
 
 const playerBtns = document.querySelectorAll("button");
-let rndCount = 0; 
+const playScore = document.querySelector(".playScore");
+const comScore = document.querySelector(".comScore");
+
+function updateScore(result) {
+    if(result == 0){
+        let currentComScore = parseInt(comScore.textContent);
+        comScore.textContent = currentComScore + 1;
+    } else if (result == 1) {
+        let currentPlayerScore = parseInt(playScore.textContent);
+        playScore.textContent = currentPlayerScore + 1;
+    } else {
+        return;
+    }
+
+}
+
+
+
 
 playerBtns.forEach(function (e) {
     e.addEventListener('click', function() {
         
-        splitstring(e.className)
+        let playerOption  = splitString(e.className);
+        let comOption = computerPlay();
+        
+        let result = singleGame(playerOption, comOption);
+        updateScore(result)
+        
+        
+        
 
     });
 });
