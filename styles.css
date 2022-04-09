@@ -60,3 +60,49 @@ ul {
     background-color: rgba(82, 6, 19, 0.854);
     flex-grow: 1;
 }
+
+.score {
+    display: flex; 
+    border-radius: 25px;
+    flex-direction: column;
+    display: flex;
+    background-color: rgba(82, 6, 19, 0.854);
+    flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: left;
+    align-items: right;
+    font-size: 30px;
+}
+.playScore {
+    display: flex;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(114, 9, 26, 0.854);
+
+}
+.comScore {
+    display: flex;
+    border-radius: 25px;    
+    margin: 10px;
+    padding: 10px;
+
+    background-color: rgba(114, 9, 26, 0.854);
+
+}
+
+.scoreBoard {
+    display: flex;
+    flex-direction: row;
+    font-size: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: space-evenly;
+}
+
+.scoreText {
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}

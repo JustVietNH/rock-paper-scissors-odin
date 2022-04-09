@@ -62,11 +62,12 @@ function splitString(className) {
 }
 
 const playerBtns = document.querySelectorAll("button");
+let rndCount = 0; 
 
 playerBtns.forEach(function (e) {
     e.addEventListener('click', function() {
-        console.log(e.className);
-        splitString(e.className)
+        
+        splitstring(e.className)
 
     });
 });
