@@ -51,16 +51,22 @@ function getOption(){
         }
     }
 }
-function game() {
+function game(target) {
+    console.log(target)
     return;
 }
 
-game()
+function splitString(className) {
+    console.log(className.split(" ")[1])
+    return;
+}
 
 const playerBtns = document.querySelectorAll("button");
 
 playerBtns.forEach(function (e) {
     e.addEventListener('click', function() {
         console.log(e.className);
+        splitString(e.className)
+
     });
 });
