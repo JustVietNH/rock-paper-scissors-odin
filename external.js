@@ -45,15 +45,19 @@ function singleGame(playerSel, computerSel) {
 }
 
 function splitString(className) {
-    console.log(className.split(" ")[1])
     return className.split(" ")[1];
 }
 
 const playerBtns = document.querySelectorAll("button");
 const playScore = document.querySelector(".playScore");
 const comScore = document.querySelector(".comScore");
+let DONE = false;
 
-function updateScore(result) {
+function updateScore(result, done) {
+    if (done) {
+        return;
+    }
+
     if(result == 0){
         let currentComScore = parseInt(comScore.textContent);
         comScore.textContent = currentComScore + 1;
@@ -66,20 +70,41 @@ function updateScore(result) {
 
 }
 
+function checkScore() {
+    if (parseInt(comScore.textContent) == 5 || parseInt(playScore.textContent)== 5) {
+        console.log("Game done");
+        DONE =true;
+    }
+}
 
+function toggleIcon(playerOption, comOption) {
+    const playerIcon = document.querySelector("." + playerOption);
+    const comIcon = document.querySelector(".icon" + comOption);
 
+    playerIcon.classList.add('playing');
+    comIcon.classList.add('playing')
+}
+
+function removePlaying() {
+
+    let btnIconsArray= Array.from(document.querySelectorAll('.rm'));
+    
+    btnIconsArray.forEach( val => {
+        val.classList.remove('playing');
+    });
+}
 
 playerBtns.forEach(function (e) {
     e.addEventListener('click', function() {
-        
+        removePlaying()
         let playerOption  = splitString(e.className);
         let comOption = computerPlay();
         
+        toggleIcon(playerOption, comOption);
+
         let result = singleGame(playerOption, comOption);
-        updateScore(result)
-        
-        
-        
+        updateScore(result, DONE)
+        checkScore();
 
     });
 });
