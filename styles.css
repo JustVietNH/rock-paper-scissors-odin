@@ -112,3 +112,9 @@ ul {
     border-color: #ffc600;
     box-shadow: 0 0 1rem #ffc600;
 }
+
+.refresh {
+    display: flex;
+    margin: auto;
+    padding: 10px;
+}
